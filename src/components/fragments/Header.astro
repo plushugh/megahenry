@@ -1,3 +1,19 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector("[data-collapse-toggle]");
+    const target = document.getElementById(btn.getAttribute("aria-controls"));
+    const iconOpen = btn.querySelector("svg:first-child");
+    const iconClose = btn.querySelector("svg:last-child");
+
+    btn.addEventListener("click", function () {
+      const expanded = btn.getAttribute("aria-expanded") === "true" || false;
+      btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+      target.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
+    });
+  });
+</script>
 <header>
   <nav
     class="fixed z-50 w-full top-0 bg-[rgba(0,0,0,0.8)] backdrop-blur-lg backdrop-saturate-150 px-4 lg:px-6 py-2.5"
@@ -17,8 +33,11 @@
           href="https://www.bilibili.com/video/BV1fg4y1U7Ya/?t=1&vd_source=ddbc0f4072d53cdcca2b203aff4db788"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-          ><i class="ph-fill ph-video"></i> Watch Special Event</a
+          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none hidden sm:block"
+          ><i class="ph-fill ph-video"></i>
+          <span class="hidden lg:inline"> Special Event</span><span
+            class="lg:hidden">Video</span
+          ></a
         >
         <button
           data-collapse-toggle="mobile-menu-2"
