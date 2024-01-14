@@ -1,37 +1,219 @@
 ---
-import Layout from '../components/Layout.astro';
+import Layout from "../components/Layout.astro";
 ---
 
-<Layout title="Astro Quickstart">
-	<main>
-    <svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>     
-    <div id="content">
-      <div class="header">
-        <h1>Quickstart Template</h1>
-        <div class="logo">
-          <img src="https://user-images.githubusercontent.com/43764894/223559085-8ff69d2f-4247-427f-a3a6-d2036b00082a.png" alt="Netlify plus Astro banner">
+<Layout title="MEGAHENRY">
+  <main>
+    <svg
+      id="background"
+      width="1728"
+      height="1235"
+      viewBox="0 0 1728 1235"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      ><g opacity="0.75" filter="url(#filter0_f_39_143)"
+        ><circle cy="1000" r="264" fill="url(#paint0_linear_39_143)"
+        ></circle></g
+      ><g opacity="0.65" filter="url(#filter1_f_39_143)"
+        ><circle cx="1720" cy="264" r="379" fill="url(#paint1_linear_39_143)"
+        ></circle></g
+      ><defs
+        ><filter
+          id="filter0_f_39_143"
+          x="-485"
+          y="515"
+          width="970"
+          height="970"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+          ><feFlood flood-opacity="0" result="BackgroundImageFix"
+          ></feFlood><feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"></feBlend><feGaussianBlur
+            stdDeviation="110.5"
+            result="effect1_foregroundBlur_39_143"></feGaussianBlur></filter
+        ><filter
+          id="filter1_f_39_143"
+          x="1120"
+          y="-336"
+          width="1200"
+          height="1200"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+          ><feFlood flood-opacity="0" result="BackgroundImageFix"
+          ></feFlood><feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"></feBlend><feGaussianBlur
+            stdDeviation="110.5"
+            result="effect1_foregroundBlur_39_143"></feGaussianBlur></filter
+        ><linearGradient
+          id="paint0_linear_39_143"
+          x1="196.5"
+          y1="902"
+          x2="-2.55853e-05"
+          y2="1264"
+          gradientUnits="userSpaceOnUse"
+          ><stop stop-color="var(--bttm-left-blur-1)"></stop><stop
+            offset="1"
+            stop-color="var(--bttm-left-blur-2)"></stop></linearGradient
+        ><linearGradient
+          id="paint1_linear_39_143"
+          x1="1720"
+          y1="-115"
+          x2="1720"
+          y2="643"
+          gradientUnits="userSpaceOnUse"
+          ><stop stop-color="var(--top-right-blur-1)"></stop><stop
+            offset="1"
+            stop-color="var(--top-right-blur-2)"></stop></linearGradient
+        ></defs
+      ></svg
+    >
+    <div class="flex flex-col items-center mx-auto mb-20 prose px-8 md:px-0">
+      <div class="text-center">
+        <div>
+          <img
+            class="pt-20 py-6 w-full"
+            src="/images/logo.svg"
+            alt="MegaHenry Logo"
+          />
         </div>
-        <h2>
-          This is a bare-bones Astro project that has everything you need to quickly deploy it to Netlify
+        <h2 class="font-medium">
+          bleeding-edge self-balancing EV charging network infrastructure
+          solution
         </h2>
-        <div class="bttns">
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-quickstart" class="bttn primary">Deploy to Netlify</a>
-          <a href="https://github.com/netlify-templates/astro-quickstart" class="bttn secondary">View Repo</a>
-        </div>
       </div>
-			<div class="resource-list">
-        <ul>
-          <li>
-            <a href="https://ntl.fyi/38O9wmY">Netlify Blog: Astro posts</a>
-					</li>
-          <li>
-            <a href="https://ntl.fyi/3KHGtyz">Netlify Docs</a>
-          </li>
-          <li>
-            <a href="https://docs.astro.build/en/getting-started/">Astro Docs</a>
-          </li>
-        </ul>
-      </div>
+      <h2>Introduction</h2>
+      <p>
+        The rapid adoption of electric vehicles in recent years has heavily
+        increased the demand for EV charging, especially in the housing
+        complexes of China, where most people live[8]. And having a dedicated
+        charging point for their car at their parking spot would be convenient
+        for their daily commute. However, most people cannot obtain permission
+        to install charging points due to capacity limits[2]. This problem
+        heavily bothers the EV owners, even making it a deciding factor in
+        whether to an EV at all[5], which hinders EV adoption and slows the
+        transition to cleaner transit. The residency need to pay up to expand
+        the grid's capacity limits. And neither of these options seems optimal.
+        Thus, we are introducing our intelligent load-balancing charging
+        solution that can be installed onto new and preexisting infrastructures
+        without migration overheads.
+      </p>
+
+      <h2>The System</h2>
+      <p>
+        The system consists of three interconnected layers, enabling efficient
+        power management and allocation.<em>(Figure 1)</em>
+      </p>
+      <figure class="w-full">
+        <img
+          class="w-full md:scale-125 md:hover:scale-150 md:transition"
+          src="/images/system-structure.svg"
+          alt="Figure 1: System Architecture"
+        />
+        <figcaption class="text-center md:mt-16">
+          Figure 1: System Architecture
+        </figcaption>
+      </figure>
+
+      <h3>Power distribution layer</h3>
+      <p>
+        The bottommost layer is a power distributor controlling the power fed to
+        each car. The corresponding device is called the "charger terminal."
+        This can communicate with cars using communication interfaces built into
+        the standard charging port; it helps the system query battery and
+        charging info from the vehicle and issue commands to the battery
+        managing system(BMS) on what current and power limits the system
+        allocates for the vehicle. According to China's national standard(GB_T
+        27930-2015)[6], the communication pins on the charger supports this
+        protocols. This module is connected between the charging point connector
+        and the vehicle power inlet <em>(Figure 2).</em> This device can
+        wirelessly communicate with the residential controller, using LoRaWAN
+        wireless technology.
+      </p>
+
+      <figure class="w-full">
+        <img
+          class="w-full md:scale-125 md:hover:scale-150 md:transition"
+          src="/images/charger-terminal.svg"
+          alt="Figure 2: Charger Terminal"
+        />
+        <figcaption class="text-center">Figure 2: Charger Terminal</figcaption>
+      </figure>
+
+      <h3>Residential Control layer</h3>
+      <p>
+        The second layer of the system contains a Residential Controller; the
+        controller is installed in every parking lot or area; we do not require
+        multiple of these controllers to be installed because LoRaWAN can allow
+        communications from chargers that are far away to jump between other
+        LoRaWAN endpoints(each charger) and reach the controller, as long as
+        each charging spot is not located more than a mile away from each other.
+        The Residential Controller wirelessly receives charging info and
+        allocates charging based on an algorithm that mixes user-set limits and
+        output of a Machine Learning(ML) Model that predicts each user's car
+        usage and charging patterns.
+      </p>
+
+      <h3>Grid Control layer</h3>
+      <p>
+        When our system reaches a particular scale, we can connect all the
+        residential controllers to a data center that intelligently distributes
+        power on a residential community level. The data center collects data
+        from every residential controller and regional power grid. Then, it runs
+        a machine learning algorithm to allocate power that stabilizes the whole
+        grid.
+      </p>
+
+      <h2>Impact</h2>
+      <p>
+        Our system makes several impacts on individual users and all of
+        humankind. Firstly, our system can improve the quality of life for EV
+        owners as they can now charge their vehicles conveniently; this will
+        also give more people an incentive to use cleaner electric vehicles,
+        consequently leading to a cleaner future for our world. Furthermore,
+        according to research by the World Research Institute(WRI)[7], when
+        using a traditional intelligent charging controller at 50%, the peak
+        power can be reduced to 61% of total grid load. With 100% utilization of
+        traditional systems, peak power can be reduced to 27% of total grid
+        load. Because of benefits on national grid, charging discount programs
+        can be established with national grid as another incentive, as system
+        creates win-win situation for both grid and system users. Secondly, our
+        charging system can protect battery health of each car by avoiding
+        suboptimal charging strategies for lithium batteries used by EVs. This
+        reduces wear on car batteries and relieves environmental impact on
+        producing replacement batteries. Lastly, our system can reduce number
+        emergency backup coal generators needed during peak hours which wastes
+        energy creates pollution also power grid infrastructure don’t have
+        altered.
+      </p>
+
+      <h2>Proprietary Assets</h2>
+      <p>
+        Our innovation uses machine learning(ML) forecast allocate power; we
+        train Tabular Regression model inputs each car's battery, charging
+        specifications grid load info model outputs how much power should
+        allocated each vehicle what time Our ML model's parameters checkpoints
+        will trade secret model forecasts will become increasingly more precise
+        optimized more people install our systems since they designed train
+        themselves design patent will applied plug module documentation
+        including server deployment ML model training maintenance application
+        information will considered confidential protected copyright.
+      </p>
     </div>
-	</main>
+    <footer class="w-full h-64 flex flex-col items-center">
+      <section>
+        <p class="flex content-baseline">
+          <span class="inline-block">Copyright 2023 ©</span>
+          <img class="w-56 inline-block" src="/images/type.svg" alt="Footer" />
+        </p>
+      </section>
+      <section></section>
+      <section></section>
+    </footer>
+  </main>
 </Layout>
