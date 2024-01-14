@@ -8,21 +8,38 @@ import "@fontsource/rubik/700.css";
 import "@fontsource/rubik/700-italic.css";
 
 export interface Props {
-  title: string;
+    title: string;
 }
 
-const { title } = Astro.props as Props;
+const {title} = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+    <script>
+        let head = document.getElementsByTagName("head")[0];
+
+        for (let weight of ["regular", "thin", "light", "bold", "fill", "duotone"]) {
+            let link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href =
+                "https://unpkg.com/@phosphor-icons/web@2.0.3/src/" + weight + "/style.css";
+            head.appendChild(link);
+        }
+
+        // window.onload = () => {
+        //     window.scrollTo(0, 0)
+        // }
+    </script>
     <title>{title}</title>
-  </head>
-  <body class="font-sans">
-    <slot />
-  </body>
+</head>
+<body class="font-sans">
+<slot/>
+</body>
 </html>

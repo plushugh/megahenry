@@ -1,219 +1,308 @@
 ---
 import Layout from "../components/Layout.astro";
+import GridBackground from "../components/GridBackground.astro";
+import BentoGrid from "../components/BentoGrid.astro";
+import BentoGridItem from "../components/BentoGridItem.astro";
+import SvgChart from "../components/griditems/SvgChart.astro"
+import SvgBuildingBlocks from "../components/griditems/SvgBuildingBlocks.astro"
+import SvgCar from "../components/griditems/SvgCar.astro"
+import SvgDiscount from "../components/griditems/SvgDiscount.astro"
+import SvgExpand from "../components/griditems/SvgExpand.astro"
+import Spotlight from "../components/ui/Spotlight.astro";
+import Charger3D from "../components/spline/Charger3D.astro";
+import {RCCarousel, CTCarousel, GCCarousel} from "../components/Carousel.jsx";
+
+const items = [
+    {
+        title: "AI powered grid load balancing",
+        description: "Intelligently scheduled charging plans to help reduce peak grid usage at night.",
+        header: SvgChart,
+        className: "md:col-span-2",
+        icon: "text-3xl ph-fill ph-brain",
+    },
+    {
+        title: "Build on existing infrastructure",
+        description: "Our product is designed to minimize migration overhead, thanks to our universally compatible charging standards.",
+        header: SvgBuildingBlocks,
+        className: "md:col-span-1",
+        icon: "text-2xl ph-fill ph-warehouse",
+    },
+    {
+        title: "Increased capacity without the cost",
+        description: "Install charging points without expanding residential community's power capacity.",
+        header: SvgExpand,
+        className: "md:col-span-1",
+        icon: "text-2xl ph-fill ph-charging-station",
+    },
+    {
+        title: "Optimized battery conditions",
+        description:
+            "Take care of lithium-ion batteries' charging best practices.",
+        header: SvgCar,
+        className: "md:col-span-1",
+        icon: "text-2xl ph-fill ph-battery-vertical-high",
+    },
+    {
+        title: "Cheaper electricity",
+        description:
+            "Avoid price spikes during peak hours in some cities, and enjoy discounted prices for reducing grid load.",
+        header: SvgDiscount,
+        className: "md:col-span-1",
+        icon: "text-2xl ph-fill ph-coins",
+    },
+];
 ---
 
+<script>
+    const words = ["Load Peaks.", "Extra Cost.", "Redundancy."];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+
+    async function type() {
+        currentWord = words[i];
+        if (isDeleting) {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j - 1);
+            j--;
+            if (j == 0) {
+                isDeleting = false;
+                i++;
+                if (i == words.length) {
+                    i = 0;
+                }
+            }
+        } else {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j + 1);
+            j++;
+            if (j == currentWord.length) {
+                await new Promise(r => setTimeout(r, 2000));
+                isDeleting = true;
+            }
+        }
+        setTimeout(type, 100);
+    }
+
+    type();
+</script>
+
 <Layout title="MEGAHENRY">
-  <main>
-    <svg
-      id="background"
-      width="1728"
-      height="1235"
-      viewBox="0 0 1728 1235"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ><g opacity="0.75" filter="url(#filter0_f_39_143)"
-        ><circle cy="1000" r="264" fill="url(#paint0_linear_39_143)"
-        ></circle></g
-      ><g opacity="0.65" filter="url(#filter1_f_39_143)"
-        ><circle cx="1720" cy="264" r="379" fill="url(#paint1_linear_39_143)"
-        ></circle></g
-      ><defs
-        ><filter
-          id="filter0_f_39_143"
-          x="-485"
-          y="515"
-          width="970"
-          height="970"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-          ><feFlood flood-opacity="0" result="BackgroundImageFix"
-          ></feFlood><feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"></feBlend><feGaussianBlur
-            stdDeviation="110.5"
-            result="effect1_foregroundBlur_39_143"></feGaussianBlur></filter
-        ><filter
-          id="filter1_f_39_143"
-          x="1120"
-          y="-336"
-          width="1200"
-          height="1200"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-          ><feFlood flood-opacity="0" result="BackgroundImageFix"
-          ></feFlood><feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"></feBlend><feGaussianBlur
-            stdDeviation="110.5"
-            result="effect1_foregroundBlur_39_143"></feGaussianBlur></filter
-        ><linearGradient
-          id="paint0_linear_39_143"
-          x1="196.5"
-          y1="902"
-          x2="-2.55853e-05"
-          y2="1264"
-          gradientUnits="userSpaceOnUse"
-          ><stop stop-color="var(--bttm-left-blur-1)"></stop><stop
-            offset="1"
-            stop-color="var(--bttm-left-blur-2)"></stop></linearGradient
-        ><linearGradient
-          id="paint1_linear_39_143"
-          x1="1720"
-          y1="-115"
-          x2="1720"
-          y2="643"
-          gradientUnits="userSpaceOnUse"
-          ><stop stop-color="var(--top-right-blur-1)"></stop><stop
-            offset="1"
-            stop-color="var(--top-right-blur-2)"></stop></linearGradient
-        ></defs
-      ></svg
-    >
-    <div class="flex flex-col items-center mx-auto mb-20 prose px-8 md:px-0">
-      <div class="text-center">
-        <div>
-          <img
-            class="pt-20 py-6 w-full"
-            src="/images/logo.svg"
-            alt="MegaHenry Logo"
-          />
+    <main>
+        <GridBackground/>
+        <Spotlight/>
+        <section class="backdrop-invert text-white">
+            <div class="container pt-32 grid max-w-screen-xl px-6 md:px-12 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-[repeat(16,_minmax(0,_1fr))]">
+                <div class="mr-auto place-self-center col-span-11">
+                    <h1 class="mb-4 text-3xl sm:text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
+                        EV Charging,<br>
+                        Without the<br class="lg:hidden">
+                        <span id="typewriter"></span>&nbsp;
+                    </h1>
+                    <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">
+                        Intelligently managed residential charging with Machine Learning for a cleaner and more
+                        sustainable electric future</p>
+                    <a href="#features"
+                       class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-primary-900">
+                        Learn More
+                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#pricing"
+                       class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg text-white focus:ring-4 border-gray-700 hover:bg-gray-700 focus:ring-gray-800">
+                        See Pricing
+                    </a>
+                </div>
+                <div class="hidden relative col-span-16 md:flex w-full items-center justify-center lg:-mx-16 xl:-mx-24 lg:-my-8 lg:col-span-5 group">
+
+                    <Charger3D/>
+                    <img class="absolute bottom-0 right-0 opacity-50 group-hover:opacity-0 transition pointer-events-none"
+                         src="/images/clickanddrag.svg" alt="click and drag"/>
+                </div>
+            </div>
+        </section>
+        <section class="backdrop-invert text-white">
+            <div class="container mx-auto px-8 md:px-16 py-16 lg:py-32">
+                <h2 class="font-bold mb-8 text-4xl lg:text-5xl">The Problem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+                    <div>
+                        <h3 class="font-bold mb-4 text-2xl md:text-3xl"><i class="text-xl ph-fill ph-gas-can"></i>
+                            Overloaded Grid</h3>
+                        <p class="md:text-lg md:leading-8">
+                            After their commute, city residents plug in their cars to charge so they can start the next
+                            day with a fully charged vehicle. Unfortunately, most people get home at the same time and
+                            charge simultaneously. The average charging power for one car is 10kW, so power demand rises
+                            significantly. The grid must start up backup coal generators to handle this sudden load,
+                            which defeats the purpose of clean energy.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4 text-2xl md:text-3xl"><i
+                                class="text-xl ph-fill ph-lightning-slash"></i>
+                            Cannot
+                            Install
+                            Chargers</h3>
+                        <p class="md:text-lg md:leading-8">
+                            Since the grid cannot handle the load, restrictions are set by the state grid company to
+                            every
+                            residential community on how many EV chargers they can install. Many new EV owners are
+                            unable to
+                            charge their new car as a result. Furthermore, more and more people are no longer
+                            considering to
+                            buy an EV after they have acknowledged that they cannot install a charging point at their
+                            parking
+                            slot.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+                class="w-full px-8 md:px-16 py-32 text-black flex flex-col justify-center items-center">
+            <h2 class="font-extrabold tracking-tight text-5xl lg:text-6xl text-center mb-8">The Solution</h2>
+            <p class="text-center italic text-lg md:text-xl leading-8">
+                At MEGAHENRY, we propose an innovative solution to this nationwide issue, at a fraction of the cost.<br>
+                We aim to resolve this fundamental roadblock on our pathway to a cleaner and more electric future.
+            </p>
+            <br>
+
+            <p class="text-center italic text-xl leading-8">We Present:</p>
+
+            <figure class="text-center scale-75">
+                <img src="/images/cOS.svg" alt="cOS logo"/>
+                <figcaption>
+                    MEGAHENRY Charging Orchestration System
+                </figcaption>
+            </figure>
+        </section>
+        <section id="features">
+            <div class="container bg-black mx-auto px-12 py-12 round-on-1400">
+                <h2 class="font-bold mb-8 text-3xl md:text-4xl"><i class="ph-fill ph-lightbulb-filament"></i> Feature
+                    Spotlights</h2>
+                <BentoGrid>
+                    {
+                        items.map((item) => (
+                                <BentoGridItem className={item.className} title={item.title} icon={item.icon}
+                                               description={item.description}>
+                                    <item.header/>
+                                </BentoGridItem>
+                        ))
+                    }
+                </BentoGrid>
+            </div>
+        </section>
+        <section class="w-full px-8 md:px-16 py-32 text-black">
+            <div class="md:container">
+                <h2 class="font-bold mb-8 text-3xl lg:text-4xl xl:text-5xl">How it works</h2>
+                <p class="mb-16">
+                    Our system infrastructure operates on three interconnected layers. These layers corresponds to the
+                    three kinds of customers we
+                    will be interfacing with.
+                </p>
+                <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16">
+                    <div>
+                        <h3 class="font-bold mb-4 text-2xl md:text-3xl"><i class="ph ph-plugs"></i> Power Distribution
+                            Layer
+                        </h3>
+                        <p class="lg:leading-8">
+                            This layer handles the communication with vehicles, in the form of a "charger terminal"
+                            device.
+                            (shown on the right)
+                            The charger terminal is connected between the car and the car owner's charger, and
+                            communicates
+                            with the car through the 2 standard communication pins on the national charging port.
+                            The pins allow our system to set charging power and get the information about the car's
+                            battery
+                            through the car's battery management system(BMS).
+                            The charger terminal have a screen for pairing purposes and to display charging statistics.
+                        </p>
+                    </div>
+                    <div class="px-8 md:px-16 sm:pt-8 flex items-center">
+                        <CTCarousel client:visible/>
+                    </div>
+                </section>
+                <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="lg:order-2">
+                        <h3 class="font-bold mb-4 text-2xl md:text-3xl"><i class="ph ph-air-traffic-control"></i>
+                            Residential
+                            Control Layer</h3>
+                        <p class="lg:leading-8">
+                            This layer manages residency complex charging as a hub for a residential deployment. Each
+                            residential community's parking lot has a residential controller that collects charger
+                            terminal data. It processes this data on a user-specific machine learning algorithm. The
+                            algorithm adapts to user preferences and habits, making the switch to our new system
+                            seamless. The controller communicates with the charger terminals using a technology
+                            named LoRaWAN®. LoRaWAN allows low-power, long-range, reliable, and secure parking lot data
+                            transfers. The networked protocol allows end devices to relay messages, achieving kilometers
+                            of range regardless of obstruction.
+                        </p>
+                    </div>
+                    <div class="px-8 md:px-16 sm:pt-8 flex items-center lg:order-1">
+                        <RCCarousel client:visible/>
+                    </div>
+                </section>
+                <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="font-bold mb-4 text-2xl md:text-3xl"><i class="ph ph-gauge"></i> Grid Control Layer
+                        </h3>
+                        <p class="lg:leading-8">
+                            When our system reaches a particular scale, we can connect all the residential controllers
+                            to a data center that intelligently distributes power on a residential community level. The
+                            data center collects data from every residential controller and regional power grid. Then,
+                            it runs another machine learning algorithm to allocate power that stabilizes the whole grid.
+                            The layer also handles business logic that verifies the users' true charging usage, and
+                            charge the users a fair price.
+                        </p>
+                    </div>
+                    <div class="px-8 md:px-16 sm:pt-8 flex items-center">
+                        <GCCarousel client:visible/>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section id="pricing" class="container mx-auto px-8 md:px-16 my-16">
+            <h2 class="font-bold my-8 text-3xl">Pricing</h2>
+            where is my pricing
+            <!-- for communities -->
+            <!-- individuals -->
+            <!-- yearly fee -->
+        </section>
+
+    </main>
+    <footer class="p-4 md:p-8 lg:p-10">
+        <div class="mx-auto max-w-screen-xl text-center">
+            <a href="#" class="flex justify-center items-center text-2xl font-semibold">
+                <img src="/images/logo.svg" alt="MEGAHENRY Logo" />
+            </a>
+            <p class="my-6 text-gray-600">Building systems for the greater environment.</p>
+            <!--<ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6">Affiliate Program</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6">FAQs</a>-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>-->
+            <!--    </li>-->
+            <!--</ul>-->
+            <span class="text-sm sm:text-center text-gray-500">© 2023-2024 <a href="#"
+                                                                              class="hover:underline">MEGAHENRY</a>. All Rights Reserved.</span>
         </div>
-        <h2 class="font-medium">
-          bleeding-edge self-balancing EV charging network infrastructure
-          solution
-        </h2>
-      </div>
-      <h2>Introduction</h2>
-      <p>
-        The rapid adoption of electric vehicles in recent years has heavily
-        increased the demand for EV charging, especially in the housing
-        complexes of China, where most people live[8]. And having a dedicated
-        charging point for their car at their parking spot would be convenient
-        for their daily commute. However, most people cannot obtain permission
-        to install charging points due to capacity limits[2]. This problem
-        heavily bothers the EV owners, even making it a deciding factor in
-        whether to an EV at all[5], which hinders EV adoption and slows the
-        transition to cleaner transit. The residency need to pay up to expand
-        the grid's capacity limits. And neither of these options seems optimal.
-        Thus, we are introducing our intelligent load-balancing charging
-        solution that can be installed onto new and preexisting infrastructures
-        without migration overheads.
-      </p>
-
-      <h2>The System</h2>
-      <p>
-        The system consists of three interconnected layers, enabling efficient
-        power management and allocation.<em>(Figure 1)</em>
-      </p>
-      <figure class="w-full">
-        <img
-          class="w-full md:scale-125 md:hover:scale-150 md:transition"
-          src="/images/system-structure.svg"
-          alt="Figure 1: System Architecture"
-        />
-        <figcaption class="text-center md:mt-16">
-          Figure 1: System Architecture
-        </figcaption>
-      </figure>
-
-      <h3>Power distribution layer</h3>
-      <p>
-        The bottommost layer is a power distributor controlling the power fed to
-        each car. The corresponding device is called the "charger terminal."
-        This can communicate with cars using communication interfaces built into
-        the standard charging port; it helps the system query battery and
-        charging info from the vehicle and issue commands to the battery
-        managing system(BMS) on what current and power limits the system
-        allocates for the vehicle. According to China's national standard(GB_T
-        27930-2015)[6], the communication pins on the charger supports this
-        protocols. This module is connected between the charging point connector
-        and the vehicle power inlet <em>(Figure 2).</em> This device can
-        wirelessly communicate with the residential controller, using LoRaWAN
-        wireless technology.
-      </p>
-
-      <figure class="w-full">
-        <img
-          class="w-full md:scale-125 md:hover:scale-150 md:transition"
-          src="/images/charger-terminal.svg"
-          alt="Figure 2: Charger Terminal"
-        />
-        <figcaption class="text-center">Figure 2: Charger Terminal</figcaption>
-      </figure>
-
-      <h3>Residential Control layer</h3>
-      <p>
-        The second layer of the system contains a Residential Controller; the
-        controller is installed in every parking lot or area; we do not require
-        multiple of these controllers to be installed because LoRaWAN can allow
-        communications from chargers that are far away to jump between other
-        LoRaWAN endpoints(each charger) and reach the controller, as long as
-        each charging spot is not located more than a mile away from each other.
-        The Residential Controller wirelessly receives charging info and
-        allocates charging based on an algorithm that mixes user-set limits and
-        output of a Machine Learning(ML) Model that predicts each user's car
-        usage and charging patterns.
-      </p>
-
-      <h3>Grid Control layer</h3>
-      <p>
-        When our system reaches a particular scale, we can connect all the
-        residential controllers to a data center that intelligently distributes
-        power on a residential community level. The data center collects data
-        from every residential controller and regional power grid. Then, it runs
-        a machine learning algorithm to allocate power that stabilizes the whole
-        grid.
-      </p>
-
-      <h2>Impact</h2>
-      <p>
-        Our system makes several impacts on individual users and all of
-        humankind. Firstly, our system can improve the quality of life for EV
-        owners as they can now charge their vehicles conveniently; this will
-        also give more people an incentive to use cleaner electric vehicles,
-        consequently leading to a cleaner future for our world. Furthermore,
-        according to research by the World Research Institute(WRI)[7], when
-        using a traditional intelligent charging controller at 50%, the peak
-        power can be reduced to 61% of total grid load. With 100% utilization of
-        traditional systems, peak power can be reduced to 27% of total grid
-        load. Because of benefits on national grid, charging discount programs
-        can be established with national grid as another incentive, as system
-        creates win-win situation for both grid and system users. Secondly, our
-        charging system can protect battery health of each car by avoiding
-        suboptimal charging strategies for lithium batteries used by EVs. This
-        reduces wear on car batteries and relieves environmental impact on
-        producing replacement batteries. Lastly, our system can reduce number
-        emergency backup coal generators needed during peak hours which wastes
-        energy creates pollution also power grid infrastructure don’t have
-        altered.
-      </p>
-
-      <h2>Proprietary Assets</h2>
-      <p>
-        Our innovation uses machine learning(ML) forecast allocate power; we
-        train Tabular Regression model inputs each car's battery, charging
-        specifications grid load info model outputs how much power should
-        allocated each vehicle what time Our ML model's parameters checkpoints
-        will trade secret model forecasts will become increasingly more precise
-        optimized more people install our systems since they designed train
-        themselves design patent will applied plug module documentation
-        including server deployment ML model training maintenance application
-        information will considered confidential protected copyright.
-      </p>
-    </div>
-    <footer class="w-full h-64 flex flex-col items-center">
-      <section>
-        <p class="flex content-baseline">
-          <span class="inline-block">Copyright 2023 ©</span>
-          <img class="w-56 inline-block" src="/images/type.svg" alt="Footer" />
-        </p>
-      </section>
-      <section></section>
-      <section></section>
     </footer>
-  </main>
 </Layout>
