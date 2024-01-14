@@ -1,0 +1,76 @@
+---
+import BentoGrid from "../fragments/bentogrid/BentoGrid.astro";
+import BentoGridItem from "../fragments/bentogrid/BentoGridItem.astro";
+
+import SvgChart from "../fragments/bentogrid/items/SvgChart.astro";
+import SvgBuildingBlocks from "../fragments/bentogrid/items/SvgBuildingBlocks.astro";
+import SvgCar from "../fragments/bentogrid/items/SvgCar.astro";
+import SvgDiscount from "../fragments/bentogrid/items/SvgDiscount.astro";
+import SvgExpand from "../fragments/bentogrid/items/SvgExpand.astro";
+
+const items = [
+  {
+    title: "AI powered grid load balancing",
+    description:
+      "Intelligently scheduled charging plans to help reduce peak grid usage at night.",
+    header: SvgChart,
+    className: "md:col-span-2",
+    icon: "text-3xl ph-fill ph-brain",
+  },
+  {
+    title: "Build on existing infrastructure",
+    description:
+      "Our product is designed to minimize migration overhead, thanks to our universally compatible charging standards.",
+    header: SvgBuildingBlocks,
+    className: "md:col-span-1",
+    icon: "text-2xl ph-fill ph-warehouse",
+  },
+  {
+    title: "Increased capacity without the cost",
+    description:
+      "Install charging points without expanding residential community's power capacity.",
+    header: SvgExpand,
+    className: "md:col-span-1",
+    icon: "text-2xl ph-fill ph-charging-station",
+  },
+  {
+    title: "Optimized battery conditions",
+    description: "Take care of lithium-ion batteries' charging best practices.",
+    header: SvgCar,
+    className: "md:col-span-1",
+    icon: "text-2xl ph-fill ph-battery-vertical-high",
+  },
+  {
+    title: "Cheaper electricity",
+    description:
+      "Avoid price spikes during peak hours in some cities, and enjoy discounted prices for reducing grid load.",
+    header: SvgDiscount,
+    className: "md:col-span-1",
+    icon: "text-2xl ph-fill ph-coins",
+  },
+];
+---
+
+<section id="features">
+  <div
+    class="container text-white backdrop-invert mx-auto px-12 py-12 round-on-1400"
+  >
+    <h2 class="font-bold mb-8 text-3xl md:text-4xl">
+      <i class="ph-fill ph-lightbulb-filament"></i> Feature Spotlights
+    </h2>
+    <BentoGrid>
+      {
+        items.map((item) => (
+          <BentoGridItem
+            className={item.className}
+            title={item.title}
+            icon={item.icon}
+            description={item.description}
+          >
+            <item.header />
+          </BentoGridItem>
+        ))
+      }
+    </BentoGrid>
+  </div>
+</section>

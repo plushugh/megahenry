@@ -1,0 +1,33 @@
+---
+import { cn } from "@/lib/utils";
+export interface Props {
+    title: string;
+    icon: string;
+    description: string;
+    className: string;
+}
+
+const { title, icon, description, className } = Astro.props as Props;
+---
+
+<div
+    class={cn(
+        "row-span-1 rounded-xl group/bento transition duration-200 shadow-none p-4 md:p-6 bg-black border-white/[0.2] border justify-between flex flex-col space-y-4",
+        className,
+    )}
+>
+    <div
+        class="flex h-full items-center justify-center scale-95 group-hover/bento:scale-100 transition"
+    >
+        <slot />
+    </div>
+    <div class="group-hover/bento:translate-x-2 transition duration-200">
+        <i class={icon}></i>
+        <div class="font-sans text-xl font-bold text-neutral-200 mb-2 mt-2">
+            {title}
+        </div>
+        <div class="font-sans font-normal text-xs text-neutral-300">
+            {description}
+        </div>
+    </div>
+</div>

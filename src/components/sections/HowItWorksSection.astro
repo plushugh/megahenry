@@ -1,0 +1,83 @@
+---
+import {
+  RCCarousel,
+  CTCarousel,
+  GCCarousel,
+} from "@/components/fragments/Carousel.jsx";
+---
+
+<section id="how-it-works" class="w-full px-8 md:px-16 py-32 text-black">
+  <div class="md:container">
+    <h2 class="font-bold mb-8 text-3xl lg:text-4xl xl:text-5xl">
+      How it works
+    </h2>
+    <p class="mb-16">
+      Our system infrastructure operates on three interconnected layers. These
+      layers corresponds to the three kinds of customers we will be interfacing
+      with.
+    </p>
+    <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16">
+      <div>
+        <h3 class="font-bold mb-4 text-2xl md:text-3xl">
+          <i class="ph ph-plugs"></i> Power Distribution Layer
+        </h3>
+        <p class="lg:leading-8">
+          This layer handles the communication with vehicles, in the form of a
+          "charger terminal" device. (shown on the right) The charger terminal
+          is connected between the car and the car owner's charger, and
+          communicates with the car through the 2 standard communication pins on
+          the national charging port. The pins allow our system to set charging
+          power and get the information about the car's battery through the
+          car's battery management system(BMS). The charger terminal have a
+          screen for pairing purposes and to display charging statistics.
+        </p>
+      </div>
+      <div class="px-8 md:px-16 sm:pt-8 flex items-center">
+        <CTCarousel client:visible />
+      </div>
+    </section>
+    <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="lg:order-2">
+        <h3 class="font-bold mb-4 text-2xl md:text-3xl">
+          <i class="ph ph-air-traffic-control"></i>
+          Residential Control Layer
+        </h3>
+        <p class="lg:leading-8">
+          This layer manages residency complex charging as a hub for a
+          residential deployment. Each residential community's parking lot has a
+          residential controller that collects charger terminal data. It
+          processes this data on a user-specific machine learning algorithm. The
+          algorithm adapts to user preferences and habits, making the switch to
+          our new system seamless. The controller communicates with the charger
+          terminals using a technology named LoRaWAN®. LoRaWAN allows
+          low-power, long-range, reliable, and secure parking lot data
+          transfers. The networked protocol allows end devices to relay
+          messages, achieving kilometers of range regardless of obstruction.
+        </p>
+      </div>
+      <div class="px-8 md:px-16 sm:pt-8 flex items-center lg:order-1">
+        <RCCarousel client:visible />
+      </div>
+    </section>
+    <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div>
+        <h3 class="font-bold mb-4 text-2xl md:text-3xl">
+          <i class="ph ph-gauge"></i> Grid Control Layer
+        </h3>
+        <p class="lg:leading-8">
+          When our system reaches a particular scale, we can connect all the
+          residential controllers to a data center that intelligently
+          distributes power on a residential community level. The data center
+          collects data from every residential controller and regional power
+          grid. Then, it runs another machine learning algorithm to allocate
+          power that stabilizes the whole grid. The layer also handles business
+          logic that verifies the users' true charging usage, and charge the
+          users a fair price.
+        </p>
+      </div>
+      <div class="px-8 md:px-16 sm:pt-8 flex items-center">
+        <GCCarousel client:visible />
+      </div>
+    </section>
+  </div>
+</section>

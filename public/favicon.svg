@@ -3,7 +3,7 @@
 <style>
     circle {
       fill: black;
-     stroke: black;
+      stroke: black;
     }
     @media (prefers-color-scheme: dark) {
       circle {
