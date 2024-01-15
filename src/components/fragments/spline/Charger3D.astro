@@ -2,9 +2,9 @@
 
 ---
 
-<canvas id="canvas3d"></canvas>
+<canvas id="canvas3d" class="w-[496px] h-[435px]" height="435"></canvas>
 <script type="module" async>
-    import('./runtime.js').then(({Application}) => {
+    import("./runtime.js").then(({ Application }) => {
         const canvas = document.getElementById("canvas3d");
         const app = new Application(canvas);
         app.load("./scene.splinecode");
