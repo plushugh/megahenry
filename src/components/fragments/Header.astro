@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../../../public/images/logo.svg";
+---
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const btn = document.querySelector("[data-collapse-toggle]");
@@ -22,9 +27,9 @@
       class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
     >
       <a href="/" class="flex items-center">
-        <img
-          src="/images/logo.svg"
-          class="mr-3 h-6 sm:h-9 invert"
+        <Image
+          src={logoImage}
+          class="mr-3 h-6 sm:h-9 invert w-min"
           alt="MEGAHENRY Logo"
         />
       </a>
@@ -36,7 +41,9 @@
           class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none hidden sm:block"
           ><i class="ph-fill ph-video"></i>
           <span class="hidden lg:inline"> Special Event</span><span
-            class="lg:hidden">Video</span
+            class="lg:hidden"
+          >
+            Watch Video</span
           ></a
         >
         <button

@@ -4,6 +4,18 @@ import {
   CTCarousel,
   GCCarousel,
 } from "@/components/fragments/Carousel.jsx";
+import { Image } from "astro:assets";
+import ct0Image from "../../../public/images/CT0.jpeg";
+import ct1Image from "../../../public/images/CT1.jpeg";
+import ct2Image from "../../../public/images/CT2.jpeg";
+import ct3Image from "../../../public/images/CT3.jpeg";
+import rc1Image from "../../../public/images/RC1.jpeg";
+import rc4Image from "../../../public/images/RC4.png";
+import rc5Image from "../../../public/images/RC5.jpeg";
+import rc3Image from "../../../public/images/RC3.jpeg";
+import gc0Image from "../../../public/images/GC0.jpeg";
+import gc1Image from "../../../public/images/GC1.jpg";
+import gc2Image from "../../../public/images/GC2.jpeg";
 ---
 
 <section id="how-it-works" class="w-full px-8 md:px-16 py-32 text-black">
@@ -33,7 +45,35 @@ import {
         </p>
       </div>
       <div class="px-8 md:px-16 sm:pt-8 flex items-center">
-        <CTCarousel client:visible />
+        <CTCarousel client:visible>
+          <Image
+            slot="ct0"
+            class="rounded-xl"
+            src={ct0Image}
+            alt="The charger terminal, default view"
+          />
+
+          <Image
+            slot="ct1"
+            class="rounded-xl"
+            src={ct1Image}
+            alt="The charger terminal, back view"
+          />
+
+          <Image
+            slot="ct2"
+            class="rounded-xl"
+            src={ct2Image}
+            alt="The charger terminal, being used on a car"
+          />
+
+          <Image
+            slot="ct3"
+            class="rounded-xl"
+            src={ct3Image}
+            alt="The charger terminal, front view"
+          />
+        </CTCarousel>
       </div>
     </section>
     <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -44,19 +84,47 @@ import {
         </h3>
         <p class="lg:leading-8">
           This layer manages residency complex charging as a hub for a
-          residential deployment. Each residential community's parking lot has a
+          residential deployment. Each residential community's parking lot has a
           residential controller that collects charger terminal data. It
           processes this data on a user-specific machine learning algorithm. The
           algorithm adapts to user preferences and habits, making the switch to
           our new system seamless. The controller communicates with the charger
-          terminals using a technology named LoRaWAN®. LoRaWAN allows
+          terminals using a technology named LoRaWAN®. LoRaWAN allows
           low-power, long-range, reliable, and secure parking lot data
           transfers. The networked protocol allows end devices to relay
           messages, achieving kilometers of range regardless of obstruction.
         </p>
       </div>
       <div class="px-8 md:px-16 sm:pt-8 flex items-center lg:order-1">
-        <RCCarousel client:visible />
+        <RCCarousel client:visible>
+          <Image
+            slot="rc1"
+            class="rounded-xl"
+            src={rc1Image}
+            alt="The residential controller, front view"
+          />
+
+          <Image
+            slot="rc4"
+            class="rounded-xl"
+            src={rc4Image}
+            alt="The topology diagram for a residential deployment"
+          />
+
+          <Image
+            slot="rc5"
+            class="rounded-xl"
+            src={rc5Image}
+            alt="The residential controller, side view"
+          />
+
+          <Image
+            slot="rc3"
+            class="rounded-xl"
+            src={rc3Image}
+            alt="The residential controller, top view"
+          />
+        </RCCarousel>
       </div>
     </section>
     <section class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -76,7 +144,28 @@ import {
         </p>
       </div>
       <div class="px-8 md:px-16 sm:pt-8 flex items-center">
-        <GCCarousel client:visible />
+        <GCCarousel client:visible>
+          <Image
+            slot="gc0"
+            class="rounded-xl"
+            src={gc0Image}
+            alt="A datacenter"
+          />
+
+          <Image
+            slot="gc1"
+            class="rounded-xl"
+            src={gc1Image}
+            alt="Image of cloud secure data transfer"
+          />
+
+          <Image
+            slot="gc2"
+            class="rounded-xl"
+            src={gc2Image}
+            alt="Our CEO in front of our workshop server"
+          />
+        </GCCarousel>
       </div>
     </section>
   </div>

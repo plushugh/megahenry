@@ -1,5 +1,7 @@
 ---
 import Charger3D from "@/components/fragments/spline/Charger3D.astro";
+import { Image } from "astro:assets";
+import clickAndDragImage from "../../../public/images/clickanddrag.svg";
 ---
 
 <script>
@@ -87,9 +89,9 @@ import Charger3D from "@/components/fragments/spline/Charger3D.astro";
       class="hidden relative col-span-16 md:flex w-full items-center justify-center lg:-mx-16 xl:-mx-24 lg:-my-8 lg:col-span-5 group"
     >
       <Charger3D />
-      <img
+      <Image
         class="absolute bottom-0 right-0 opacity-50 group-hover:opacity-0 transition pointer-events-none"
-        src="/images/clickanddrag.svg"
+        src={clickAndDragImage}
         alt="click and drag"
       />
     </div>

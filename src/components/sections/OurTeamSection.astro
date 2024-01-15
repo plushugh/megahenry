@@ -1,9 +1,14 @@
+---
+import { Image } from "astro:assets";
+import groupImage from "../../../public/images/group.jpg";
+---
+
 <section id="team" class="container mx-auto px-8 md:px-16 py-32 font-serif">
   <h2 class="font-bold mb-16 text-3xl lg:text-4xl xl:text-5xl text-center">
     Our people make us great
   </h2>
-  <img
-    src="/images/group.jpg"
+  <Image
+    src={groupImage}
     alt="Group photo of our team"
     class="mb-16 rounded-xl"
   />
@@ -11,7 +16,7 @@
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-16 lg:px-32 gap-16"
   >
     <div class="flex flex-col items-start">
-      <h3 class="font-bold text-2xl lg:text-3xl">Runguo Zheng</h3>
+      <h3 class="font-bold text-2xl lg:text-3xl">Abraham Zheng</h3>
       <p class="text-lg lg:text-xl text-gray-600">Holding WD-40</p>
       <p class="text-xl lg:text-2xl">CEO</p>
     </div>
@@ -26,14 +31,14 @@
       <p class="text-xl lg:text-2xl">CTO</p>
     </div>
     <div class="flex flex-col items-start">
-      <h3 class="font-bold text-2xl lg:text-3xl">Sam Ding</h3>
-      <p class="text-lg lg:text-xl text-gray-600 mb-1">Second from left</p>
-      <p class="text-xl lg:text-2xl">CFO</p>
-    </div>
-    <div class="flex flex-col items-start">
       <h3 class="font-bold text-2xl lg:text-3xl">James Zhang</h3>
       <p class="text-lg lg:text-xl text-gray-600 mb-1">Leftmost</p>
       <p class="text-xl lg:text-2xl">Embedded Engineer</p>
+    </div>
+    <div class="flex flex-col items-start">
+      <h3 class="font-bold text-2xl lg:text-3xl">Sam Ding</h3>
+      <p class="text-lg lg:text-xl text-gray-600 mb-1">Second from left</p>
+      <p class="text-xl lg:text-2xl">CFO</p>
     </div>
   </div>
   <div class="text-center">

@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import cOSImage from "../../../public/images/cOS.svg";
 ---
 
 <section
@@ -22,7 +23,7 @@
     <p class="text-center italic text-xl leading-8">We Present:</p>
 
     <figure class="text-center scale-75">
-        <img src="/images/cOS.svg" alt="cOS logo" />
+        <Image src={cOSImage} alt="cOS logo" />
         <figcaption>MEGAHENRY Charging Orchestration System</figcaption>
     </figure>
 </section>

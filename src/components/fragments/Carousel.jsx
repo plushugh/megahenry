@@ -7,37 +7,21 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-export const CTCarousel = () => {
+export const CTCarousel = (props) => {
   return (
     <Carousel plugins={[Autoplay({delay: 3000})]}>
       <CarouselContent>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/CT0.jpeg"
-            alt="The charger terminal, default view"
-          />
+          {props.ct0}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/CT1.jpeg"
-            alt="The charger terminal, back view"
-          />
+          {props.ct1}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/CT2.jpeg"
-            alt="The charger terminal, being used on a car"
-          />
+          {props.ct2}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/CT3.jpeg"
-            alt="The charger terminal, front view"
-          />
+          {props.ct3}
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
@@ -45,37 +29,21 @@ export const CTCarousel = () => {
     </Carousel>
   );
 };
-export const RCCarousel = () => {
+export const RCCarousel = (props) => {
   return (
     <Carousel plugins={[Autoplay({delay: 3000})]}>
       <CarouselContent>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/RC1.jpeg"
-            alt="The residential controller, front view"
-          />
+          {props.rc1}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/RC4.png"
-            alt="The topology diagram for a residential deployment"
-          />
+          {props.rc4}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/RC5.jpeg"
-            alt="The residential controller, side view"
-          />
+          {props.rc5}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/RC3.jpeg"
-            alt="The charger terminal, top view"
-          />
+          {props.rc3}
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
@@ -83,30 +51,18 @@ export const RCCarousel = () => {
     </Carousel>
   );
 };
-export const GCCarousel = () => {
+export const GCCarousel = (props) => {
   return (
     <Carousel plugins={[Autoplay({delay: 3000})]}>
       <CarouselContent>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/GC0.jpeg"
-            alt="A datacenter"
-          />
+          {props.gc0}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/GC1.jpg"
-            alt="Image of cloud secure data transfer"
-          />
+          {props.gc1}
         </CarouselItem>
         <CarouselItem>
-          <img
-            className="rounded-xl"
-            src="/images/GC2.jpeg"
-            alt="Our team leader in front of our workshop server"
-          />
+          {props.gc2}
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />

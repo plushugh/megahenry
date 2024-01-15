@@ -1,7 +1,12 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../../../public/images/logo.svg";
+---
+
 <footer class="p-4 md:p-8 lg:p-10 bg-white">
   <div class="mx-auto max-w-screen-xl text-center">
     <a href="#" class="flex justify-center items-center text-2xl font-semibold">
-      <img src="/images/logo.svg" alt="MEGAHENRY Logo" />
+      <Image src={logoImage} alt="MEGAHENRY Logo" />
     </a>
     <p class="my-6 text-gray-600">
       Building systems for the greater environment.
