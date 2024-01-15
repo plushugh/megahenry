@@ -4,9 +4,9 @@
 
 <canvas id="canvas3d"></canvas>
 <script type="module" async>
-    import { Application } from "./runtime.js";
-
-    const canvas = document.getElementById("canvas3d");
-    const app = new Application(canvas);
-    app.load("./scene.splinecode");
+    import('./runtime.js').then(({Application}) => {
+        const canvas = document.getElementById("canvas3d");
+        const app = new Application(canvas);
+        app.load("./scene.splinecode");
+    });
 </script>
